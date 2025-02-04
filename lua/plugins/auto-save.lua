@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "chaozwn/auto-save.nvim",
-  event = { "User AstroFile", "InsertEnter" },
+  event = { "LazyFile", "InsertEnter" },
   opts = {
     debounce_delay = 3000,
     print_enabled = false,
