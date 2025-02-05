@@ -80,6 +80,15 @@ return {
         },
       },
     },
+    {
+      "nvim-lualine/lualine.nvim",
+      opts = function(_, opts)
+        if LazyVim.has("overseer.nvim") then
+          table.insert(opts.sections.lualine_x, { "overseer" })
+        end
+        return opts
+      end,
+    },
   },
   keys = {
     { prefix .. "t", "<cmd>OverseerToggle<cr>", desc = "Toggle Overseer" },
