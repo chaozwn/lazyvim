@@ -1,10 +1,5 @@
-if true then
-  return {}
-end
-
 local prefix = "<leader>P"
 
----@type LazySpec
 return {
   "yetone/avante.nvim",
   build = "make",
@@ -88,10 +83,7 @@ return {
       "MeanderingProgrammer/render-markdown.nvim",
       optional = true,
       opts = function(_, opts)
-        if not opts.file_types then
-          opts.file_types = { "markdown" }
-        end
-        opts.file_types = require("utils").list_insert_unique(opts.file_types, { "Avante" })
+        opts.file_types = require("utils").list_insert_unique(opts.file_types or {}, { "Avante" })
       end,
     },
     {

@@ -1,6 +1,5 @@
-local prefix_diff_view = "<Leader>g"
+local prefix_diff_view = "<leader>g"
 
----@type LazySpec
 return {
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen" },
