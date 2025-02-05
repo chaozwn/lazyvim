@@ -1,5 +1,14 @@
 local M = {}
 
+function M.contains_arg(args, arg)
+  for _, v in ipairs(args) do
+    if v == arg then
+      return true
+    end
+  end
+  return false
+end
+
 function M.get_parent_dir(path)
   return path:match("(.+)/")
 end

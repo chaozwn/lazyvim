@@ -1,3 +1,28 @@
+local utils = require("utils")
+
+local function diagnostic()
+  local system_config = vim.fn.stdpath("config") .. "/.markdownlint.jsonc"
+  local project_config = vim.fn.getcwd() .. "/.markdownlint.jsonc"
+
+  local markdownlint = require("lint").linters["markdownlint-cli2"]
+  if not utils.contains_arg(markdownlint.args or {}, "--config") then
+    markdownlint.args = {}
+    table.insert(markdownlint.args, "--config")
+  end
+
+  if vim.fn.filereadable(project_config) == 1 then
+    if not utils.contains_arg(markdownlint.args, project_config) then
+      table.insert(markdownlint.args, project_config)
+    end
+  else
+    if not utils.contains_arg(markdownlint.args, system_config) then
+      table.insert(markdownlint.args, system_config)
+    end
+  end
+
+  return markdownlint.args
+end
+
 local markdown_table_change = function()
   vim.ui.input({ prompt = "Separate Char: " }, function(input)
     if not input or #input == 0 then
@@ -68,6 +93,20 @@ return {
             )
           end,
         },
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters = {
+        ["markdownlint-cli2"] = {
+          args = diagnostic(),
+        },
+      },
+      linters_by_ft = {
+        markdown = { "markdownlint-cli2" },
       },
     },
   },
