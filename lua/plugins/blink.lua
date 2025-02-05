@@ -40,6 +40,13 @@ return {
   opts = function(_, opts)
     return require("utils").extend_tbl(opts, {
       sources = {
+        min_keyword_length = function(ctx)
+          -- only applies when typing a command, doesn't apply to arguments
+          if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then
+            return 2
+          end
+          return 0
+        end,
         compat = require("utils").list_insert_unique(opts.sources.compat or {}, { "dotenv" }),
         cmdline = function()
           local type = vim.fn.getcmdtype()
@@ -103,12 +110,12 @@ return {
           },
         },
       },
+      signature = { enabled = true },
       completion = {
         list = { selection = { preselect = true, auto_insert = false } },
         menu = {
           scrollbar = false,
           draw = {
-            treesitter = { "lsp" },
             components = {
               kind_icon = {
                 ellipsis = true,
@@ -130,7 +137,6 @@ return {
       },
       keymap = {
         preset = "super-tab",
-        ["<C-y>"] = { "select_and_accept" },
       },
     })
   end,

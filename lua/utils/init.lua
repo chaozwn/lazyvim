@@ -1,5 +1,15 @@
 local M = {}
 
+function M.remove_keymap(mode, key)
+  for _, map in pairs(vim.api.nvim_get_keymap(mode)) do
+    ---@diagnostic disable-next-line: undefined-field
+    if map.lhs:upper() == key:upper() then
+      vim.api.nvim_del_keymap(mode, key)
+      return map
+    end
+  end
+end
+
 function M.contains_arg(args, arg)
   for _, v in ipairs(args) do
     if v == arg then
