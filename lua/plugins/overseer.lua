@@ -76,7 +76,7 @@ return {
       optional = true,
       opts = {
         spec = {
-          { prefix, group = "overseer" },
+          { prefix, group = "overseer", icon = "" },
         },
       },
     },

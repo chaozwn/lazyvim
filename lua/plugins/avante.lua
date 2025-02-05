@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+
 local prefix = "<leader>P"
 
 ---@type LazySpec
@@ -56,7 +60,7 @@ return {
       optional = true,
       opts = {
         spec = {
-          { prefix, group = "avante" },
+          { prefix, group = "avante", icon = "", mode = { "n", "v" } },
         },
       },
     },

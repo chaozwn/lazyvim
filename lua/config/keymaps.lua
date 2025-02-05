@@ -15,6 +15,16 @@ keymap.set("n", "N", require("utils").better_search("N"), { desc = "Previous Sea
 keymap.set("n", "n", "nzz", { noremap = true, silent = true })
 keymap.set("n", "N", "Nzz", { noremap = true, silent = true })
 
-keymap.set("n", "<leader>nh", ":nohlsearch<CR>", { desc = "Close search highlight", noremap = true, silent = true })
-
 keymap.set("n", "x", '"_x', { noremap = true, silent = true })
+
+-- for mini.pairs
+local map_bs = function(lhs, rhs)
+  keymap.set("i", lhs, rhs, { expr = true, replace_keycodes = false })
+end
+
+map_bs("<C-h>", "v:lua.MiniPairs.bs()")
+map_bs("<C-w>", 'v:lua.MiniPairs.bs("\23")')
+map_bs("<C-u>", 'v:lua.MiniPairs.bs("\21")')
+
+-- for lsp
+keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
