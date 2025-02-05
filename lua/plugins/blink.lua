@@ -53,7 +53,6 @@ return {
           end
           return {}
         end,
-        min_keyword_length = 0,
         providers = {
           dotenv = {
             kind = "DotEnv",
