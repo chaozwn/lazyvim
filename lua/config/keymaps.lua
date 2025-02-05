@@ -16,6 +16,7 @@ keymap.set("n", "n", "nzz", { noremap = true, silent = true })
 keymap.set("n", "N", "Nzz", { noremap = true, silent = true })
 
 keymap.set("n", "x", '"_x', { noremap = true, silent = true })
+keymap.set("n", "<leader>/", LazyVim.pick("live_grep", { root = false }), { desc = "Grep (cwd)" })
 
 -- for mini.pairs
 local map_bs = function(lhs, rhs)
