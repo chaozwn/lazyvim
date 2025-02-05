@@ -57,20 +57,12 @@ local function ensure_kernel_for_venv()
   return new_kernel_name
 end
 
----@type LazySpec
 return {
   "benlubas/molten-nvim",
   ft = { "python" },
-  cmd = {
-    "MoltenEvaluateLine",
-    "MoltenEvaluateVisual",
-    "MoltenEvaluateOperator",
-    "MoltenEvaluateArgument",
-    "MoltenImportOutput",
-  },
   version = "^1", -- use version <2.0.0 to avoid breaking changes
   build = ":UpdateRemotePlugins",
-  opts = function()
+  config = function()
     vim.g["molten_auto_image_popup"] = false
     vim.g["molten_auto_open_html_in_browser"] = false
     vim.g["molten_auto_open_output"] = false
@@ -87,6 +79,23 @@ return {
     vim.g["molten_virt_lines_off_by_1"] = false
     vim.g["molten_virt_text_output"] = false
     vim.g["molten_wrap_output"] = true
+
+    -- create q close autocmd
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "molten_output" },
+      callback = function(event)
+        vim.bo[event.buf].buflisted = false
+        vim.schedule(function()
+          vim.keymap.set("n", "q", function()
+            vim.cmd("MoltenHideOutput")
+          end, {
+            buffer = event.buf,
+            silent = true,
+            desc = "Quit buffer",
+          })
+        end)
+      end,
+    })
   end,
   keys = {
     {
@@ -124,6 +133,7 @@ return {
         end
       end,
       desc = "Enter Output",
+      mode = "v",
     },
     {
       prefix .. "mi",
@@ -163,12 +173,12 @@ return {
           vim.notify("No kernel to initialize.", vim.log.levels.WARN)
         end
       end,
-      desc = "Restart kernel",
+      desc = "Initialize for Python venv",
       silent = true,
     },
     {
       prefix .. "r",
-      ":<C-u>MoltenEvaluateVisual<cr>",
+      ":<C-u>MoltenEvaluateVisual<CR>",
       desc = "Evaluate visual selection",
       mode = "v",
     },
