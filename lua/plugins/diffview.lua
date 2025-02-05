@@ -12,14 +12,14 @@ return {
       desc = "Open Git Diffview",
     },
     {
-      prefix_diff_view .. "h",
+      prefix_diff_view .. "t",
       function()
         vim.cmd([[DiffviewFileHistory]])
       end,
       desc = "Open current branch git history",
     },
     {
-      prefix_diff_view .. "H",
+      prefix_diff_view .. "T",
       function()
         vim.cmd([[DiffviewFileHistory %]])
       end,
