@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.vue" },
+  { import = "plugins.extras.vue" },
 }

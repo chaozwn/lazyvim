@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.rust" },
+  { import = "plugins.extras.rust" },
 }

@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.typescript" },
+  { import = "plugins.extras.typescript" },
 }

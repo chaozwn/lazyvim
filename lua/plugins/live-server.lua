@@ -2,6 +2,7 @@ local prefix = "<leader>c"
 ---@type LazySpec
 return {
   "barrett-ruth/live-server.nvim",
+  ft = { "html" },
   build = "npm install -g live-server",
   cmd = { "LiveServerStart", "LiveServerStop" },
   opts = {},

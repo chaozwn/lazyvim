@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.thrift" },
+  { import = "plugins.extras.thrift" },
 }

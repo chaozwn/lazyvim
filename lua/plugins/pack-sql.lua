@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.sql" },
+  { import = "plugins.extras.sql" },
 }

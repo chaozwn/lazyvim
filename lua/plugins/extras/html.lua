@@ -1,4 +1,10 @@
 return {
+  recommended = function()
+    return LazyVim.extras.wants({
+      ft = { "css", "html" },
+      root = { "*.html", "*.css", "*.less", "*.scss" },
+    })
+  end,
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,

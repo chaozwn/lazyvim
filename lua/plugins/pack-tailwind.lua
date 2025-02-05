@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.tailwind" },
+  { import = "plugins.extras.tailwind" },
 }

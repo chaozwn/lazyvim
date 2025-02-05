@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "plugins.extras.json" },
 }

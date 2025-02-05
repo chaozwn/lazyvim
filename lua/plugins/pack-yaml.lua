@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.yaml" },
+  { import = "plugins.extras.yaml" },
 }

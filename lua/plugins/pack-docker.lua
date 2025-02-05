@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.docker" },
+  { import = "plugins.extras.docker" },
 }

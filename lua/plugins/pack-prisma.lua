@@ -1,3 +1,3 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.prisma" },
+  { import = "plugins.extras.prisma" },
 }
