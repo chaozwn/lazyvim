@@ -30,9 +30,13 @@ return {
           return
         end
 
-        if pcall(function()
-          require("persistence").load()
-        end) then
+        if
+          pcall(function()
+            require("persistence").load()
+            -- HACK: auto close home page tabs
+            require("utils").close_cwd_bufnr()
+          end)
+        then
           vim.schedule(function()
             vim.cmd.doautocmd("FileType")
           end)
