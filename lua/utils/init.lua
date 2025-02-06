@@ -1,17 +1,5 @@
 local M = {}
 
-function M.close_cwd_bufnr()
-  local buffers = vim.api.nvim_list_bufs()
-  for _, bufnr in ipairs(buffers) do
-    local bufname = vim.api.nvim_buf_get_name(bufnr)
-    local cwd_path = vim.uv.cwd() or ""
-    if bufname == cwd_path then
-      vim.api.nvim_buf_delete(bufnr, { force = true })
-      break
-    end
-  end
-end
-
 function M.remove_keymap(mode, key)
   for _, map in pairs(vim.api.nvim_get_keymap(mode)) do
     ---@diagnostic disable-next-line: undefined-field

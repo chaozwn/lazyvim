@@ -1,3 +1,15 @@
+local function close_cwd_bufnr()
+  local buffers = vim.api.nvim_list_bufs()
+  for _, bufnr in ipairs(buffers) do
+    local bufname = vim.api.nvim_buf_get_name(bufnr)
+    local cwd_path = vim.uv.cwd() or ""
+    if bufname == cwd_path then
+      vim.api.nvim_buf_delete(bufnr, { force = true })
+      break
+    end
+  end
+end
+
 return {
   "folke/persistence.nvim",
   init = function()
@@ -34,7 +46,7 @@ return {
           pcall(function()
             require("persistence").load()
             -- HACK: auto close home page tabs
-            require("utils").close_cwd_bufnr()
+            close_cwd_bufnr()
           end)
         then
           vim.schedule(function()
