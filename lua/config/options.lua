@@ -7,3 +7,32 @@ vim.g.lazyvim_picker = "fzf"
 vim.g.lazyvim_cmp = "blink.cmp"
 vim.g.autoformat = true
 vim.g.ai_cmp = false
+
+-- filetypes
+LazyVim.on_very_lazy(function()
+  vim.filetype.add({
+    extension = {
+      mdx = "markdown.mdx",
+      qmd = "markdown",
+      yml = require("utils").yaml_ft,
+      yaml = require("utils").yaml_ft,
+      json = "jsonc",
+      MD = "markdown",
+      tpl = "gotmpl",
+    },
+    filename = {
+      [".eslintrc.json"] = "jsonc",
+      ["vimrc"] = "vim",
+    },
+    pattern = {
+      ["/tmp/neomutt.*"] = "markdown",
+      ["tsconfig*.json"] = "jsonc",
+      [".*/%.vscode/.*%.json"] = "jsonc",
+      [".*/waybar/config"] = "jsonc",
+      [".*/mako/config"] = "dosini",
+      [".*/kitty/.+%.conf"] = "kitty",
+      [".*/hypr/.+%.conf"] = "hyprlang",
+      ["%.env%.[%w_.-]+"] = "sh",
+    },
+  })
+end)
