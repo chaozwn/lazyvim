@@ -18,14 +18,15 @@ keymap.set("n", "N", "Nzz", { noremap = true, silent = true })
 keymap.set("n", "x", '"_x', { noremap = true, silent = true })
 keymap.set("n", "<leader>/", LazyVim.pick("live_grep", { root = false }), { desc = "Grep (cwd)" })
 
--- for mini.pairs
-local map_bs = function(lhs, rhs)
-  keymap.set("i", lhs, rhs, { expr = true, replace_keycodes = false })
+if LazyVim.has("mini.pairs") then
+  -- for mini.pairs
+  local map_bs = function(lhs, rhs)
+    keymap.set("i", lhs, rhs, { expr = true, replace_keycodes = false })
+  end
+  map_bs("<C-h>", "v:lua.MiniPairs.bs()")
+  map_bs("<C-w>", 'v:lua.MiniPairs.bs("\23")')
+  map_bs("<C-u>", 'v:lua.MiniPairs.bs("\21")')
 end
-
-map_bs("<C-h>", "v:lua.MiniPairs.bs()")
-map_bs("<C-w>", 'v:lua.MiniPairs.bs("\23")')
-map_bs("<C-u>", 'v:lua.MiniPairs.bs("\21")')
 
 -- for lsp
 keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
