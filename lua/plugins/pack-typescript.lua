@@ -33,6 +33,9 @@ return {
     opts = {
       servers = {
         vtsls = {
+          on_attach = function(_)
+            vim.g.lazyvim_prettier_needs_config = true
+          end,
           settings = {
             typescript = { tsserver = { maxTsServerMemory = 13312 } },
           },
