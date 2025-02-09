@@ -1,7 +1,3 @@
-if true then
-  return {}
-end
-
 return {
   recommended = function()
     return LazyVim.extras.wants({
