@@ -133,7 +133,7 @@ return {
           {
             prefix .. "q",
             function()
-              require("dap").Terminate()
+              require("dap").terminate()
             end,
             desc = "Terminate",
           },

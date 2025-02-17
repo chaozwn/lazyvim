@@ -48,18 +48,6 @@ return {
           return 0
         end,
         compat = require("utils").list_insert_unique(opts.sources.compat or {}, { "dotenv" }),
-        cmdline = function()
-          local type = vim.fn.getcmdtype()
-          -- Search forward and backward
-          if type == "/" or type == "?" then
-            return { "buffer" }
-          end
-          -- Commands
-          if type == ":" or type == "@" then
-            return { "cmdline" }
-          end
-          return {}
-        end,
         providers = {
           dotenv = {
             kind = "DotEnv",
@@ -111,6 +99,21 @@ return {
         },
       },
       signature = { enabled = true },
+      cmdline = {
+        enabled = true,
+        sources = function()
+          local type = vim.fn.getcmdtype()
+          -- Search forward and backward
+          if type == "/" or type == "?" then
+            return { "buffer" }
+          end
+          -- Commands
+          if type == ":" or type == "@" then
+            return { "cmdline" }
+          end
+          return {}
+        end,
+      },
       completion = {
         list = { selection = { preselect = true, auto_insert = false } },
         menu = {
