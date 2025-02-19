@@ -199,8 +199,8 @@ return {
       optional = true,
       opts = {
         spec = {
-          { prefix, group = "Molten", icon = "󱓞", mode = { "n", "v" } },
-          { prefix .. "m", group = "Commands", icon = "󱓞" },
+          { prefix, group = "molten", icon = "󱓞", mode = { "n", "v" } },
+          { prefix .. "m", group = "mommands", icon = "󱓞" },
         },
       },
     },

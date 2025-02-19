@@ -9,5 +9,28 @@ return {
         },
       },
     },
+    images = {
+      enabled = true,
+    },
   },
+  keys = function(_, keys)
+    vim.list_extend(keys, {
+      {
+        "<leader>nh",
+        function()
+          require("snacks").image.hover()
+        end,
+        desc = "Show images",
+      },
+      {
+        "<leader>nn",
+        function()
+          Snacks.picker.notifications()
+        end,
+        desc = "Notification History",
+      },
+    })
+
+    require("utils").remove_keys(keys, { "<leader>n" })
+  end,
 }
