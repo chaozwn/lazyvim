@@ -33,4 +33,20 @@ return {
 
     require("utils").remove_keys(keys, { "<leader>n" })
   end,
+  specs = {
+    {
+      "folke/which-key.nvim",
+      optional = true,
+      opts = {
+        spec = {
+          {
+            "<leader>n",
+            group = "tools",
+            icon = "",
+            mode = { "n", "v" },
+          },
+        },
+      },
+    },
+  },
 }
