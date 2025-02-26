@@ -1,4 +1,5 @@
 local prefix = "<leader>m"
+
 return {
   "stevearc/overseer.nvim",
   event = "VeryLazy",

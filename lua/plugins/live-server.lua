@@ -1,5 +1,5 @@
 local prefix = "<leader>c"
----@type LazySpec
+
 return {
   "barrett-ruth/live-server.nvim",
   ft = { "html" },

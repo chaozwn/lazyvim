@@ -1,17 +1,3 @@
-local filetypes = {
-  "css",
-  "eruby",
-  "html",
-  "htmldjango",
-  "javascriptreact",
-  "less",
-  "pug",
-  "sass",
-  "scss",
-  "typescriptreact",
-  "vue",
-}
-
 return {
   recommended = function()
     return LazyVim.extras.wants({

@@ -14,7 +14,7 @@ return {
     },
   },
   keys = function(_, keys)
-    vim.list_extend(keys, {
+    require("utils").extend_tbl(keys, {
       {
         "<leader>nh",
         function()

@@ -79,6 +79,7 @@ return {
                 includeAutomaticOptionalChainCompletions = true,
                 includeCompletionsWithSnippetText = true,
               },
+              ["enable-strict-mode-prompt"] = true,
             },
           },
         },

@@ -1,4 +1,3 @@
----@type LazySpec
 return {
   "brenoprata10/nvim-highlight-colors",
   event = { "LazyFile", "InsertEnter" },
