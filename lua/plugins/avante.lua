@@ -47,6 +47,7 @@ return {
       files = {
         add_current = prefix .. ".",
       },
+      select_model = prefix .. "?",
     },
   },
   specs = {
