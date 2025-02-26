@@ -34,7 +34,7 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensure_installed = { "cssmodules-language-server", "css-lsp" },
+      ensure_installed = { "html-lsp", "cssmodules-language-server", "css-lsp" },
     },
   },
   {
@@ -50,6 +50,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        html = { init_options = { provideFormatter = false } },
         cssls = {
           init_options = { provideFormatter = false },
           settings = {
