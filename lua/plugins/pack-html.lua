@@ -1,3 +1,17 @@
+local filetypes = {
+  "css",
+  "eruby",
+  "html",
+  "htmldjango",
+  "javascriptreact",
+  "less",
+  "pug",
+  "sass",
+  "scss",
+  "typescriptreact",
+  "vue",
+}
+
 return {
   recommended = function()
     return LazyVim.extras.wants({
@@ -16,12 +30,59 @@ return {
       vim.treesitter.language.register("scss", "postcss")
     end,
   },
+  -- Linters & formatters
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = { "html-lsp", "cssmodules-language-server", "css-lsp", "emmet-language-server" },
+    },
+  },
   {
     "echasnovski/mini.icons",
     optional = true,
     opts = {
       filetype = {
         postcss = { glyph = "󰌜", hl = "MiniIconsOrange" },
+      },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        emmet_language_server = {
+          init_options = {
+            --- @type boolean Defaults to `true`
+            showAbbreviationSuggestions = false,
+            --- @type "always" | "never" Defaults to `"always"`
+            showExpandedAbbreviation = "always",
+            --- @type boolean Defaults to `false`
+            showSuggestionsAsSnippets = true,
+          },
+          filetypes,
+        },
+        html = { init_options = { provideFormatter = false } },
+        cssls = {
+          init_options = { provideFormatter = false },
+          settings = {
+            css = {
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+            less = {
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+            scss = {
+              validate = false,
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+          },
+        },
       },
     },
   },
