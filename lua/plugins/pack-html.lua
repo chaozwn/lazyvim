@@ -34,7 +34,7 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensure_installed = { "html-lsp", "cssmodules-language-server", "css-lsp", "emmet-language-server" },
+      ensure_installed = { "cssmodules-language-server", "css-lsp" },
     },
   },
   {
@@ -50,18 +50,6 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        emmet_language_server = {
-          init_options = {
-            --- @type boolean Defaults to `true`
-            showAbbreviationSuggestions = false,
-            --- @type "always" | "never" Defaults to `"always"`
-            showExpandedAbbreviation = "always",
-            --- @type boolean Defaults to `false`
-            showSuggestionsAsSnippets = true,
-          },
-          filetypes,
-        },
-        html = { init_options = { provideFormatter = false } },
         cssls = {
           init_options = { provideFormatter = false },
           settings = {

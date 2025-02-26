@@ -8,10 +8,6 @@ vim.g.lazyvim_cmp = "blink.cmp"
 vim.g.ai_cmp = false
 vim.g.lazyvim_check_order = false
 
--- Set to false to disable auto format
-vim.g.lazyvim_eslint_auto_format = false
-vim.g.autoformat = false
-
 -- filetypes
 LazyVim.on_very_lazy(function()
   vim.filetype.add({
