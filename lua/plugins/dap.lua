@@ -108,7 +108,7 @@ return {
     },
     keys = function(_, keys)
       if LazyVim.has("persistent-breakpoints.nvim") then
-        vim.list_extend(keys, {
+        require("utils").list_insert_unique(keys, {
           {
             prefix .. "b",
             function()

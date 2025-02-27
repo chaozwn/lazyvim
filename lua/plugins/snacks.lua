@@ -14,7 +14,7 @@ return {
     },
   },
   keys = function(_, keys)
-    require("utils").extend_tbl(keys, {
+    require("utils").list_insert_unique(keys, {
       {
         "<leader>nh",
         function()
@@ -32,6 +32,7 @@ return {
     })
 
     require("utils").remove_keys(keys, { "<leader>n" })
+    return keys
   end,
   specs = {
     {
