@@ -11,11 +11,7 @@ return {
       adapters = {
         deepseek = function()
           -- 从环境变量中获取 API Key
-          local api_key = os.getenv("DEEPSEEK_API_KEY")
-          if not api_key then
-            vim.notify("DEEPSEEK_API_KEY 环境变量未设置", vim.log.levels.ERROR)
-            return
-          end
+          local api_key = require("utils").get_os_env("DEEPSEEK_API_KEY")
 
           return require("codecompanion.adapters").extend("deepseek", {
             env = {
