@@ -164,6 +164,15 @@ function M.extend_tbl(default, opts)
   return default and vim.tbl_deep_extend("force", default, opts) or opts
 end
 
+function M.get_os_env(env_key)
+  local env_val = os.getenv(env_key)
+  if not env_key then
+    vim.notify(env_key .. "环境变量未设置", vim.log.levels.ERROR)
+    return
+  end
+  return env_val
+end
+
 function M.size(max, value)
   return value > 1 and math.min(value, max) or math.floor(max * value)
 end
