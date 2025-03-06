@@ -226,6 +226,70 @@ return {
             end,
             desc = "Debugger Hover",
           },
+          -- support F keyboard
+          {
+            "<F5>",
+            function()
+              require("dap").continue()
+            end,
+            desc = "Debugger: Start",
+          },
+          {
+            "<F21>",
+            function()
+              require("dap").terminate()
+            end,
+            desc = "Debugger: Stop",
+          },
+          {
+            "<F21>",
+            function()
+              require("persistent-breakpoints.api").set_conditional_breakpoint()
+            end,
+            desc = "Conditional Breakpoint (S-F9)",
+          },
+          {
+            "<F29>",
+            function()
+              require("dap").restart_frame()
+            end,
+            desc = "Debugger: Restart",
+          },
+          {
+            "<F6>",
+            function()
+              require("dap").pause()
+            end,
+            desc = "Debugger: Pause",
+          },
+          {
+            "<F9>",
+            function()
+              require("persistent-breakpoints.api").toggle_breakpoint()
+            end,
+            desc = "Debugger: Toggle Breakpoint",
+          },
+          {
+            "<F10>",
+            function()
+              require("dap").step_over()
+            end,
+            desc = "Debugger: Step Over",
+          },
+          {
+            "<F11>",
+            function()
+              require("dap").step_into()
+            end,
+            desc = "Debugger: Step Into",
+          },
+          {
+            "<F23>",
+            function()
+              require("dap").step_out()
+            end,
+            desc = "Debugger: Step Out",
+          },
         })
       end
       require("utils").remove_keys(keys, { "<leader>dt" })
