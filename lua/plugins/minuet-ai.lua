@@ -30,6 +30,18 @@ return {
           },
           -- 添加自定义系统提示以强化不重复要求
           system = {
+            prompt = function()
+              return [[
+              You are the backend of an AI-powered code completion engine. Your task is to
+              provide code suggestions based on the user's input. The user's code will be
+              enclosed in markers:
+              <contextAfterCursor>: Code context after the cursor
+              <cursorPosition>: Current cursor location
+              <contextBeforeCursor>: Code context before the cursor
+              Note that the user's code will be prompted in reverse order: first the code
+              after the cursor, then the code before the cursor.
+              ]]
+            end,
             guidelines = function()
               return [[
               Guidelines:
@@ -39,9 +51,19 @@ return {
               - Provide multiple completion options that are DISTINCTLY DIFFERENT from each other.
               - Return completions separated by the marker <endCompletion>.
               - Keep each completion option concise and focused.
-              - CAREFULLY check that your suggestions don't duplicate ANY code visible in the file.
-              - Each completion should make logical sense with the surrounding code context.
+              
+              Context-Aware Function Completions:
+              - When completing inside a function call, carefully analyze both the function name and surrounding context.
+              - NEVER suggest nested calls to the same function unless it's a clearly recursive pattern.
+              - Look for similar function calls elsewhere in the visible code to maintain consistent style and patterns.
+              - Consider the function's likely purpose based on its name and any parameters already provided.
+              - For function arguments, suggest values that logically complement previous arguments.
+              - Maintain the established naming conventions and coding style visible in the context.
+              - Predict the developer's intent by considering what would make sense in the current code flow.
               ]]
+            end,
+            n_completion_template = function()
+              return "Provide at most %d distinct completion items."
             end,
           },
         },
