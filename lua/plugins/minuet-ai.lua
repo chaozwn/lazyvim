@@ -21,7 +21,7 @@ return {
           },
         },
       },
-      virtual_text = {
+      virtualtext = {
         auto_trigger_ft = { "*" },
         keymap = {
           accept = "<C-;>",
