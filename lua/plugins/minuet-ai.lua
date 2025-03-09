@@ -21,7 +21,7 @@
 --       provider_options = {
 --         openai_compatible = {
 --           api_key = "OPENROUTER_API_KEY",
---           model = "anthropic/claude-3.7-sonnet",
+--           model = "anthropic/claude-3.5-haiku-20241022",
 --           end_point = "https://openrouter.ai/api/v1/chat/completions",
 --           name = "OpenRouter",
 --           optional = {
@@ -41,7 +41,8 @@
 --               after the cursor, then the code before the cursor.
 --
 --               PREPROCESSING RULES - APPLY BEFORE GENERATING ANY COMPLETION:
---               1. RULE: If <contextBeforeCursor> ends with "//", remove "//" from all completions.
+--
+--               1. RULE: If <contextBeforeCursor> ends with "//", generate only the comment content without repeating the "//" prefix.
 --               2. RULE: If <contextBeforeCursor> ends with "/", remove "/" from all completions.
 --               3. RULE: If <contextBeforeCursor> ends with a quote character (' or " or `), remove the same quote from the start of all completions.
 --
