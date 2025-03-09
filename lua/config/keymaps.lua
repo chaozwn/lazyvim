@@ -28,12 +28,5 @@ if LazyVim.has("mini.pairs") then
   map_bs("<C-u>", 'v:lua.MiniPairs.bs("\21")')
 end
 
-if LazyVim.has("minuet-ai.nvim") then
-  keymap.set("i", "<C-;>", require("minuet.virtualtext").action.accept)
-  keymap.set("i", "<M-[>", require("minuet.virtualtext").action.prev)
-  keymap.set("i", "<M-]>", require("minuet.virtualtext").action.next)
-  keymap.set("i", "<C-]>", require("minuet.virtualtext").action.dismiss)
-end
-
 -- for lsp
 keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
