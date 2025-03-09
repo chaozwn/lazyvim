@@ -28,10 +28,27 @@ return {
             max_tokens = 256,
             top_p = 0.9,
           },
+          -- 添加自定义系统提示以强化不重复要求
+          system = {
+            guidelines = function()
+              return [[
+              Guidelines:
+              - Offer completions after the <cursorPosition> marker.
+              - NEVER repeat any part of the existing code from either before or after the cursor.
+              - Make sure you have maintained the user's existing whitespace and indentation.
+              - Provide multiple completion options that are DISTINCTLY DIFFERENT from each other.
+              - Return completions separated by the marker <endCompletion>.
+              - Keep each completion option concise and focused.
+              - CAREFULLY check that your suggestions don't duplicate ANY code visible in the file.
+              - Each completion should make logical sense with the surrounding code context.
+              ]]
+            end,
+          },
         },
       },
       virtualtext = {
         auto_trigger_ft = { "*" },
+        auto_trigger_ignore_ft = { "markdown", "text" }, -- 避免在纯文本文件中自动触发
         keymap = {
           accept = "<C-;>",
           accept_line = "<C-l>",
