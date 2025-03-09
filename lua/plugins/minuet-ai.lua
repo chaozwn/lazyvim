@@ -8,6 +8,7 @@ return {
       n_completions = 1,
       context_window = 512,
       provider = "openai_compatible",
+      -- proxy = "127.0.0.1:7890",
       provider_options = {
         openai_compatible = {
           api_key = "OPENROUTER_API_KEY",
