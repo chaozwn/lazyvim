@@ -71,7 +71,6 @@ return {
     vim.g["molten_enter_output_behavior"] = "open_and_enter"
     -- molten_output
     vim.g["molten_image_location"] = "both"
-    vim.g["molten_image_provider"] = "image.nvim"
     vim.g["molten_output_show_more"] = true
     vim.g["molten_use_border_highlights"] = true
 
