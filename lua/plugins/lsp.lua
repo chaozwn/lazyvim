@@ -9,6 +9,9 @@ return {
         update_in_insert = false,
         underline = true,
       },
+      inlay_hints = {
+        enabled = false,
+      }
     },
   },
 }
