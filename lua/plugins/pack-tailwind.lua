@@ -56,7 +56,6 @@ return {
           })
           -- Add additional filetypes
           vim.list_extend(opts.filetypes, opts.filetypes_include or {})
-          require("snacks").debug(opts.settings)
         end,
       },
     },
