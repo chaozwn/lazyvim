@@ -14,7 +14,7 @@ return {
           settings = {
             vue = {
               server = {
-                maxOldSpaceSize = 8092,
+                maxOldSpaceSize = 8192,
               },
             },
           },

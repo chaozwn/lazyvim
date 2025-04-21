@@ -1,3 +1,5 @@
+local enabled = false
+
 local sql_ft = { "sql", "mysql", "plsql", "dbt" }
 
 local function sql_formatter_linter(name)
@@ -46,7 +48,7 @@ return {
       ft = sql_ft,
     })
   end,
-  { import = "lazyvim.plugins.extras.lang.sql" },
+  -- { import = "lazyvim.plugins.extras.lang.sql" },
   {
     "williamboman/mason.nvim",
     optional = true,
@@ -57,6 +59,9 @@ return {
     optional = true,
     opts = function(_, opts)
       return require("utils").extend_tbl(opts, {
+        default_format_opts = {
+          timeout = 30000,
+        },
         formatters = {
           sqlfmt = {
             prepend_args = formatting(),
@@ -81,7 +86,16 @@ return {
     end,
   },
   {
+    "kristijanhusak/vim-dadbod-completion",
+    enabled = enabled,
+  },
+  {
+    "tpope/vim-dadbod",
+    enabled = enabled,
+  },
+  {
     "kristijanhusak/vim-dadbod-ui",
+    enabled = enabled,
     init = function()
       local data_path = vim.fn.stdpath("data")
 

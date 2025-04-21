@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+
 local function get_cmd(workspace_dir)
   local func = require("mason-core.functional")
   local path = require("mason-core.path")
