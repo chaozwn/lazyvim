@@ -1,8 +1,5 @@
-if true then
-  return {}
-end
-
 return {
+  enabled = vim.fn.executable("go") == 1,
   recommended = function()
     return LazyVim.extras.wants({
       ft = { "go", "gomod", "gowork", "gotmpl" },
