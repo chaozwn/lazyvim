@@ -4,7 +4,6 @@ return {
   opts = {
     lang = {
       thrift = { "//%s", "/*%s*/" },
-      goctl = { "//%s", "/*%s*/" },
     },
   },
 }
