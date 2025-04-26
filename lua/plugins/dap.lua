@@ -386,40 +386,6 @@ return {
     },
     config = function(_, opts)
       local dapui = require("dapui")
-      local dap = require("dap")
-
-      local events = {
-        "event_continued",
-        "event_exited",
-        "event_initialized",
-        "event_invalidated",
-        "event_stopped",
-        "event_terminated",
-        "event_thread",
-        "attach",
-        "continue",
-        "disconnect",
-        "initialize",
-        "launch",
-        "next",
-        "pause",
-        "restart",
-        "restartFrame",
-        "stepBack",
-        "stepIn",
-        "stepInTargets",
-        "stepOut",
-        "terminate",
-        "terminateThreads",
-      }
-      for _, event in ipairs(events) do
-        dap.listeners.after[event].dapui_config = function()
-          require("dapui.controls").refresh_control_panel()
-        end
-        dap.listeners.before[event].dapui_config = function()
-          require("dapui.controls").refresh_control_panel()
-        end
-      end
       dapui.setup(opts)
     end,
   },
