@@ -423,19 +423,4 @@ return {
       dapui.setup(opts)
     end,
   },
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    event = "VeryLazy",
-    opts = {
-      commented = true,
-      enabled = true,
-      enabled_commands = true,
-      only_first_definition = true,
-      clear_on_continue = true,
-      highlight_changed_variables = true,
-      all_frames = false,
-      virt_lines = true,
-      show_stop_reason = true,
-    },
-  },
 }
