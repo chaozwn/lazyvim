@@ -101,11 +101,7 @@ return {
       signature = { enabled = true },
       cmdline = {
         enabled = true,
-        keymap = {
-          ["<Tab>"] = { "accept" },
-          ["<CR>"] = { "accept_and_enter", "fallback" },
-        },
-        -- (optionally) automatically show the menu
+        keymap = { preset = "inherit" },
         completion = { menu = { auto_show = true } },
         sources = function()
           local type = vim.fn.getcmdtype()

@@ -18,13 +18,13 @@ return {
   },
   -- Linters & formatters
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = { "html-lsp", "cssmodules-language-server", "css-lsp" },
     },
   },
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     optional = true,
     opts = {
       filetype = {

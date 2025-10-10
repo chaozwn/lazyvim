@@ -50,7 +50,7 @@ return {
   end,
   -- { import = "lazyvim.plugins.extras.lang.sql" },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     optional = true,
     opts = { ensure_installed = { "sqlfluff", "sqlfmt" } },
   },
