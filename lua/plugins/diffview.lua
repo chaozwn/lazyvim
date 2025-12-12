@@ -5,7 +5,7 @@ return {
   cmd = { "DiffviewOpen" },
   keys = {
     {
-      prefix_diff_view .. "d",
+      prefix_diff_view .. "E",
       function()
         vim.cmd([[DiffviewOpen]])
       end,
