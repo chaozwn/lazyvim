@@ -8,6 +8,7 @@ vim.g.lazyvim_cmp = "blink.cmp"
 vim.g.ai_cmp = false
 vim.g.lazyvim_check_order = false
 vim.g.autoformat = false
+vim.opt.swapfile = false
 
 -- filetypes
 LazyVim.on_very_lazy(function()
