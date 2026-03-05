@@ -1,12 +1,15 @@
 return {
   "kylechui/nvim-surround",
-  version = "*", -- Use for stability; omit to use `main` branch for the latest features
+  version = "^4.0.0",
   event = "VeryLazy",
-  opts = {
-    keymaps = {
-      insert = false,
-      insert_line = false,
-      visual = "gs",
-    },
-  },
+  init = function()
+    vim.g.nvim_surround_no_insert_mappings = true
+    vim.g.nvim_surround_no_visual_mappings = true
+  end,
+  config = function()
+    require("nvim-surround").setup()
+    vim.keymap.set("x", "gs", "<Plug>(nvim-surround-visual)", {
+      desc = "Add a surrounding pair around a visual selection",
+    })
+  end,
 }
