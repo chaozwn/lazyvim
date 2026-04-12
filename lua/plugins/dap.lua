@@ -63,7 +63,8 @@ local choose_dap_element = function(callback)
 end
 
 return {
-  { import = "lazyvim.plugins.extras.dap" },
+  { import = "lazyvim.plugins.extras.dap.core" },
+  { import = "lazyvim.plugins.extras.dap.nlua" },
   {
     "saghen/blink.cmp",
     optional = true,

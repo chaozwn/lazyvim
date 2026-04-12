@@ -1,5 +1,5 @@
 return {
-  { import = "lazyvim.plugins.extras.formatting.biome" },
+  { import = "lazyvim.plugins.extras.lang.typescript.biome" },
   {
     "stevearc/conform.nvim",
     optional = true,
